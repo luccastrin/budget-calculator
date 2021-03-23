@@ -9,9 +9,29 @@
 
   <div class="inputs-data">
     <div class="container">
-      <input type="text" placeholder="amount">
-      <input type="text" placeholder="description">
-      <button>Add</button>
+      <form [formGroup]="formBudget">
+        <div class="validation">
+          <input 
+            [ngClass]="validatingForm('amount')" 
+            formControlName="amount" 
+            type="text" 
+            placeholder="amount">
+          <p *ngIf="!this.formBudget.get('amount').valid && this.formBudget.get('amount').touched">Input field required!</p>
+        </div>
+        <div class="validation">
+          <input 
+            [ngClass]="validatingForm('description')" 
+            formControlName="description" 
+            type="text"
+            placeholder="description">
+          <p *ngIf="!this.formBudget.get('description').valid && this.formBudget.get('description').touched">Input field required!</p>
+        </div>
+        <button 
+          [ngClass]="stylingButton()" 
+          (click)="sendData()" 
+          type="button"
+          [disabled]="!formBudget.valid">Add</button>
+      </form>
     </div>
   </div>
 </header>

@@ -30,30 +30,55 @@
     border-bottom: 1px solid #f5f5f5;
     
     .container {
-      display: flex;
-      justify-content: space-between;
-
-      input {
-        @include input(#f5f5f5, #000);
-
-        &:focus {
-          border: 2px solid #9f68eb;
-        }
-        
-        &:nth-child(1) {
-          width: 20%;
-        }
-        
-        &:nth-child(2) {
-          width: 65%;
-        }
-      }
       
-      button {
-        @include button(#9f68eb, #fff);
-        width: 10%;
+      form {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        .validation {
+
+          &:nth-child(1) {
+            width: 20%;
+          }
+          
+          &:nth-child(2) {
+            width: 65%;
+          }
+
+          input {
+            @include input(#f5f5f5, #000);
+            width: 100%;
+            margin-bottom: 5px;
+    
+            &.success {
+              border: 2px solid #9f68eb;
+            }
+            
+            &.error {
+              border: 2px solid red;
+            }
+          }
+
+          p {
+            font-size: 15px;
+            color: red;
+          }
+        }
+        
+        button {
+          width: 10%;
+          height: 40px;
+          
+          &.success {
+            @include button(#9f68eb, #fff);
+          }
+          
+          &.error {
+            @include button(#999999, #fff);
+          }
+        }
       }
     }
-
   }
 }

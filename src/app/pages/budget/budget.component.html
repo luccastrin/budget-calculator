@@ -1,6 +1,7 @@
 <section id="budget">
   <div class="container">
-    <app-income></app-income>
-    <app-expenses></app-expenses>
+    
+    <app-income [items]="getBudgetData()"></app-income>
+    <app-expenses [items]="getBudgetData()"></app-expenses>
   </div>
 </section>

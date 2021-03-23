@@ -9,26 +9,73 @@
     margin-bottom: 20px;
   }
 
-  .expenses-content {
-    @include budget-price(#f5f5f5, #dc3904);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+  .error {
+    color: red;
+    border: 1px solid red;
+    padding: 10px;
+  }
 
-    &:last-child {
-      margin-bottom: 0;
-    }
+  .testing {
 
-    p {
-      font-size: 16px;
-    }
+    .expenses-content {
+      margin-bottom: 20px;
+  
+      .styling {
+        position: relative;
+        @include budget-price(#f5f5f5, #dc3904);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-    span {
-      background-color: #ffe5e3;
-      display: inline-block;
-      padding: 5px;
-      border-radius: 5px;
+        &:hover {
+
+          .image {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        .image {
+          cursor: pointer;
+
+          opacity: 0;
+          transform: scale(0);
+          transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          right: -15px;
+          top: -15px;
+          background-color: #000;
+          border-radius: 50%;
+          width: 30px;
+          height: 30px;
+
+          img {
+            width: 15px;
+          }
+        }
+  
+        &:last-child {
+          margin-bottom: 0;
+        }
+    
+        p {
+          font-size: 15px;
+        }
+        
+        span {
+          font-size: 15px;
+          background-color: #ffe5e3;
+          display: inline-block;
+          padding: 5px;
+          border-radius: 5px;
+        }
+      }
+  
     }
   }
+
 }

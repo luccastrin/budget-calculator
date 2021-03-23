@@ -1,8 +1,20 @@
 <div class="expenses">
   <h1>{{ expenses | uppercase }}</h1>
 
-  <div class="expenses-content" *ngFor="let item of [1,2,3]">
-    <p>Rent</p>
-    <span>1000</span>
+  <div class="testing" *ngIf="testingObjectLength().length">
+    <div class="expenses-content" *ngFor="let item of items">
+      <div class="styling" *ngIf="item.amount < 0">
+        <p>{{ item.description }}</p>
+        <span>{{ item.amount }}</span>
+
+        <div class="image" (click)="deleteSelectedBudget(item)">
+          <img src="../../../../assets/images/close.svg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="error" *ngIf="!testingObjectLength().length">
+    <p>no registered value!</p>
   </div>
 </div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BudgetService } from 'src/app/pages/budget/services/budget.service';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +9,50 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   title = 'budget calculator';
+  formBudget: FormGroup;
 
-  constructor() { }
+  constructor(
+    private form: FormBuilder,
+    private budgetService: BudgetService
+  ) { }
 
   ngOnInit(): void {
+    this.initializeForm();
   }
 
+  initializeForm() {
+    this.formBudget = this.form.group({
+      amount: ['', Validators.required],
+      description: ['', Validators.required],
+    });
+  }
+
+  validatingForm(type: string) {
+    let touched = this.formBudget.get(type).touched;
+    let valid = this.formBudget.get(type).valid;
+
+    if (touched) {
+      return touched && valid ? 'success' : 'error';
+    }
+  }
+
+  stylingButton() {
+    return this.formBudget.valid ? 'success' : 'error';
+  }
+
+  mappingBudgetForm() {
+    return {
+      amount: this.formBudget.get('amount').value,
+      description: this.formBudget.get('description').value
+    }
+  }
+
+  sendData() {
+    let listaBudget = this.mappingBudgetForm();
+    this.budgetService.setBudgetData(listaBudget);
+    this.formBudget.patchValue({
+      amount: '',
+      description: ''
+    })
+  }
 }
