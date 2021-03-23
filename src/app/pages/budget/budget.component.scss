@@ -1,0 +1,16 @@
+#budget {
+  padding-top: 80px;
+
+  .container {
+    display: flex;
+
+    app-income {
+      width: 48%;
+      margin-right: 4%;
+    }
+
+    app-expenses {
+      width: 48%;
+    }
+  }
+}

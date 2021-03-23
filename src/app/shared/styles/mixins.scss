@@ -1,0 +1,22 @@
+@mixin input($background, $color) {
+  background-color: $background;
+  color: $color;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+@mixin button($background, $color) {
+  background-color: $background;
+  color: $color;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+@mixin budget-price($background, $color) {
+  background-color: $background;
+  color: $color;
+  border-radius: 5px;
+  padding: 10px;
+}
