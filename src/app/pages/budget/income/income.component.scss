@@ -13,12 +13,16 @@
     color: red;
     border: 1px solid red;
     padding: 10px;
+
+    p {
+      margin-bottom: 0;
+    }
   }
 
   .testing {
 
     .income-content {
-      margin-bottom: 20px;
+      margin-bottom: 20px !important;
       
       .styling {
         position: relative;
@@ -26,6 +30,10 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        p {
+          margin-bottom: 0;
+        }
 
         &:hover {
 
