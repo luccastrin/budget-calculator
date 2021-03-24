@@ -47,12 +47,25 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  changeNumberColour() {
+    let number = this.budgetService.getAllValues();
+
+    return number >= 0 ? 'greater' : 'less';
+  }
+
   sendData() {
     let listaBudget = this.mappingBudgetForm();
     this.budgetService.setBudgetData(listaBudget);
-    this.formBudget.patchValue({
-      amount: '',
-      description: ''
-    })
+
+    console.log('array ', this.budgetService.budgetArray);
+    console.log('mapeado ', this.budgetService.getAllValues())
+    // this.formBudget.patchValue({
+    //   amount: '',
+    //   description: ''
+    // })
+  }
+
+  getBudget() {
+    return this.budgetService.getAllValues();
   }
 }

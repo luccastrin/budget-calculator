@@ -21,4 +21,10 @@ export class BudgetService {
   deleteBudgetData(item) {
     this.budgetArray.splice(this.budgetArray.indexOf(item), 1)
   }
+
+  getAllValues(): number {
+    return this.budgetArray
+      .map(value => Number(value.amount))
+      .reduce((acc: number, curVal) => acc + curVal, 0);
+  }
 }
